@@ -1,0 +1,42 @@
+package pl.put.poznan.transformer.logic;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class TextTransformerAbbreviation {
+
+    private final String[] transforms;
+    private Map<String,String> map;
+
+    public TextTransformerAbbreviation(String[] transforms){
+        this.transforms = transforms;
+        this.map = new HashMap<String, String>();
+        this.map.put("profesor","prof.");
+        this.map.put("Profesor","Prof.");
+        this.map.put("doktor","dr.");
+        this.map.put("Doktor","Dr.");
+        this.map.put("na przyklad","np.");
+        this.map.put("Na przyklad","Np.");
+        this.map.put("i tym podobne","itd.");
+        this.map.put("I tym podobne","Itd.");
+    }
+
+    public String toAbbreviation(String text){
+        // shorten
+
+        for(Map.Entry<String,String> entry : this.map.entrySet()){
+            text=text.replaceAll(entry.getKey(),entry.getValue());
+        }
+        return text;
+    }
+
+    public String fromAbbreviation(String text){
+        // expand
+
+        for(Map.Entry<String,String> entry : this.map.entrySet()){
+            text=text.replaceAll(entry.getValue(),entry.getKey());
+        }
+        return text;
+    }
+
+}
