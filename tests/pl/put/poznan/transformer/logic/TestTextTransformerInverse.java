@@ -28,7 +28,7 @@ public class TestTextTransformerInverse {
 	    	if (Character.isUpperCase(input[i])) {
 	    		output[i] = Character.toUpperCase(output[i]);
 	    	}
-		    else if (Character.isLowerCase(input[i])) {
+		    else {
 		    	output[i] = Character.toLowerCase(output[i]);
 		    }
 	    }
