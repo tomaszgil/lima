@@ -11,14 +11,15 @@ public class TextTransformerAbbreviation {
     public TextTransformerAbbreviation(String[] transforms){
         this.transforms = transforms;
         this.map = new HashMap<String, String>();
-        this.map.put("profesor","prof.");
-        this.map.put("Profesor","Prof.");
+
+        this.map.put("profesor","prof\\.");
+        this.map.put("Profesor","Prof\\.");
         this.map.put("doktor","dr");
         this.map.put("Doktor","Dr");
-        this.map.put("na przyklad","np.");
-        this.map.put("Na przyklad","Np.");
-        this.map.put("i tym podobne","itp.");
-        this.map.put("I tym podobne","Itp.");
+        this.map.put("na przykład","np\\.");
+        this.map.put("Na przykład","Np\\.");
+        this.map.put("i tym podobne","itp\\.");
+        this.map.put("I tym podobne","Itp\\.");
     }
 
     public String toAbbreviation(String text){
