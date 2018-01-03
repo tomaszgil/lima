@@ -30,12 +30,12 @@ public class TestTextTransformerAbbreviation {
 	
 	@Test
 	public void testToAbbreviationNaPrzykladLowerCase() {
-		assertEquals("np.", textTransformer.toAbbreviation("na przyklad"));
+		assertEquals("np.", textTransformer.toAbbreviation("na przykład"));
 	}
 	
 	@Test
 	public void testToAbbreviationNaPrzykladUpperCase() {
-		assertEquals("Np.", textTransformer.toAbbreviation("Na przyklad"));
+		assertEquals("Np.", textTransformer.toAbbreviation("Na przykład"));
 	}
 	
 	@Test
@@ -75,12 +75,12 @@ public class TestTextTransformerAbbreviation {
 	
 	@Test
 	public void testFromAbbreviationNaPrzykladLowerCase() {
-		assertEquals("na przyklad", textTransformer.fromAbbreviation("np."));
+		assertEquals("na przykład", textTransformer.fromAbbreviation("np."));
 	}
 	
 	@Test
 	public void testFromAbbreviationNaPrzykladUpperCase() {
-		assertEquals("Na przyklad", textTransformer.fromAbbreviation("Np."));
+		assertEquals("Na przykład", textTransformer.fromAbbreviation("Np."));
 	}
 	
 	@Test
