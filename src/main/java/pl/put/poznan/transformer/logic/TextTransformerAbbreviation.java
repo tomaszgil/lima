@@ -11,6 +11,7 @@ public class TextTransformerAbbreviation {
     public TextTransformerAbbreviation(String[] transforms){
         this.transforms = transforms;
         this.map = new HashMap<String, String>();
+
         this.map.put("profesor","prof\\.");
         this.map.put("Profesor","Prof\\.");
         this.map.put("doktor","dr");
