@@ -6,95 +6,50 @@ import org.junit.Test;
 
 public class TestTextTransformerInverse {
 
-	private String textBeforeTransformation;
-	private String textAfterTransformation;
-	
 	TextTransformerInverse textTransformer = new TextTransformerInverse(null);	
 	
-	public String inverse(String text) {
-	    char[] input = text.toCharArray();
-	    char[] output = text.toCharArray();
-	    int begin = 0;
-	    int end = input.length-1;
-	    char temp;
-	    while(end>begin) {
-	    	temp = input[begin];
-	    	output[begin]=input[end];
-	    	output[end] = temp;
-	    	end--;
-	    	begin++;
-	    }
-	    for (int i = 0; i<input.length; i++) {
-	    	if (Character.isUpperCase(input[i])) {
-	    		output[i] = Character.toUpperCase(output[i]);
-	    	}
-		    else {
-		    	output[i] = Character.toLowerCase(output[i]);
-		    }
-	    }
-	    return new String(output);
-	}
-
 	@Test
 	public void testTextInverseLettersAllLowerCase() {
-		textBeforeTransformation = "abcdefgh";
-		textAfterTransformation = textTransformer.inverse(textBeforeTransformation);
-		assertEquals(this.inverse(textBeforeTransformation), textAfterTransformation);
+		assertEquals("hgfedcba", textTransformer.inverse("abcdefgh"));
 	}
 	
 	@Test
 	public void testTextInverseLettersAllUpperCase() {
-		textBeforeTransformation = "ABCDEFGH";
-		textAfterTransformation = textTransformer.inverse(textBeforeTransformation);
-		assertEquals(this.inverse(textBeforeTransformation), textAfterTransformation);
+		assertEquals("HGFEDCBA", textTransformer.inverse("ABCDEFGH"));
 	}
 
 	@Test
 	public void testTextInverseLettersMixedCase() {
-		textBeforeTransformation = "ABCdEfghIJk";
-		textAfterTransformation = textTransformer.inverse(textBeforeTransformation);
-		assertEquals(this.inverse(textBeforeTransformation), textAfterTransformation);
+		assertEquals("KJIhGfedCBa", textTransformer.inverse("ABCdEfghIJk"));
 	}
 	
 	@Test
 	public void testTextInverseWithNumbersLowerCase() {
-		textBeforeTransformation = "abc1234def";
-		textAfterTransformation = textTransformer.inverse(textBeforeTransformation);
-		assertEquals(this.inverse(textBeforeTransformation), textAfterTransformation);
+		assertEquals("fed4321cba", textTransformer.inverse("abc1234def"));
 	}
 	
 	@Test
 	public void testTextInverseWithNumbersUpperCase() {
-		textBeforeTransformation = "GHIJK789LMN";
-		textAfterTransformation = textTransformer.inverse(textBeforeTransformation);
-		assertEquals(this.inverse(textBeforeTransformation), textAfterTransformation);
+		assertEquals("NML987kjIHG", textTransformer.inverse("GHIJK789LMN"));
 	}
 	
 	@Test
 	public void testTextInverseWithNumbersMixedCase() {
-		textBeforeTransformation = "GhiJK789LMN";
-		textAfterTransformation = textTransformer.inverse(textBeforeTransformation);
-		assertEquals(this.inverse(textBeforeTransformation), textAfterTransformation);
+		assertEquals("Nml987kjIHG", textTransformer.inverse("GhiJK789LMN"));
 	}
 	
 	@Test
 	public void testTextInverseWithSymbolsLowerCase() {
-		textBeforeTransformation = "abc!@#defg";
-		textAfterTransformation = textTransformer.inverse(textBeforeTransformation);
-		assertEquals(this.inverse(textBeforeTransformation), textAfterTransformation);
+		assertEquals("gfed#@!cba", textTransformer.inverse("abc!@#defg"));
 	}
 	
 	@Test
 	public void testTextInverseWithSymbolsUpperCase() {
-		textBeforeTransformation = "&*()JKLQWER";
-		textAfterTransformation = textTransformer.inverse(textBeforeTransformation);
-		assertEquals(this.inverse(textBeforeTransformation), textAfterTransformation);
+		assertEquals("rewqLKJ)(*&", textTransformer.inverse("&*()JKLQWER"));
 	}
 	
 	@Test
 	public void testTextInverseWithSymbolsMixedCase() {
-		textBeforeTransformation = "hPl^&((GJSaa";
-		textAfterTransformation = textTransformer.inverse(textBeforeTransformation);
-		assertEquals(this.inverse(textBeforeTransformation), textAfterTransformation);
+		assertEquals("aAsjg((&^Lph", textTransformer.inverse("hPl^&((GJSaa"));
 	}	
 }
