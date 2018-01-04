@@ -5,11 +5,9 @@ import java.util.Map;
 
 public class TextTransformerAbbreviation {
 
-    private final String[] transforms;
     private Map<String,String> map;
 
     public TextTransformerAbbreviation(String[] transforms){
-        this.transforms = transforms;
         this.map = new HashMap<String, String>();
         this.map.put("profesor","prof\\.");
         this.map.put("Profesor","Prof\\.");
