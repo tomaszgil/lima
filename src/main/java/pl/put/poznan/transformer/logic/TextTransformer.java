@@ -6,13 +6,38 @@ package pl.put.poznan.transformer.logic;
 public class TextTransformer {
 
     private final String[] transforms;
+    private TextTransformerAbbreviation textTransformerAbbreviation;
+    private TextTransformerInverse textTransformerInverse;
+    private TextTransformerLetterSize textTransformerLetterSize;
 
     public TextTransformer(String[] transforms){
         this.transforms = transforms;
+        this.textTransformerAbbreviation = new TextTransformerAbbreviation();
+        this.textTransformerInverse = new TextTransformerInverse();
+        this.textTransformerLetterSize = new TextTransformerLetterSize();
     }
 
     public String transform(String text){
-        // of course normally it would to something based on transforms
-        return text.toUpperCase();
+        for(int i=0; i<transforms.length; i++)
+        {
+            if(transforms[i].contains("abbreviation")){
+                text = textTransformerAbbreviation.fromAbbreviation(text);
+                text = textTransformerAbbreviation.toAbbreviation(text);
+            }
+            if(transforms[i].contains("inverse")){
+                text = textTransformerInverse.inverse(text);
+            }
+            if(transforms[i].contains("upper")){
+                text = textTransformerLetterSize.upper(text);
+            }
+            if(transforms[i].contains("lower")){
+                text = textTransformerLetterSize.lower(text);
+            }
+            if(transforms[i].contains("capitalize")) {
+                text = textTransformerLetterSize.capitalize(text);
+            }
+        }
+
+        return text;
     }
 }
