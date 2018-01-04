@@ -7,7 +7,7 @@ public class TextTransformerAbbreviation {
 
     private Map<String,String> map;
 
-    public TextTransformerAbbreviation(String[] transforms){
+    public TextTransformerAbbreviation(){
         this.map = new HashMap<String, String>();
         this.map.put("profesor","prof\\.");
         this.map.put("Profesor","Prof\\.");
