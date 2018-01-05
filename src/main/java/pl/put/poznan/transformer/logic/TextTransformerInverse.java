@@ -2,7 +2,6 @@ package pl.put.poznan.transformer.logic;
 
 public class TextTransformerInverse {
 
-
     public TextTransformerInverse(){}
 
     public String inverse(String text){

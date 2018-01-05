@@ -6,7 +6,7 @@ import org.junit.Test;
 
 public class TestTextTransformerAbbreviation {
 	
-	TextTransformerAbbreviation textTransformer = new TextTransformerAbbreviation(null);
+	TextTransformerAbbreviation textTransformer = new TextTransformerAbbreviation();
 	
 	@Test
 	public void testToAbbreviationProfesorLowerCase() {
