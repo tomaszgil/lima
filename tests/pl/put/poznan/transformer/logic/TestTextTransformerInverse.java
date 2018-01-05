@@ -6,7 +6,7 @@ import org.junit.Test;
 
 public class TestTextTransformerInverse {
 
-	TextTransformerInverse textTransformer = new TextTransformerInverse(null);	
+	TextTransformerInverse textTransformer = new TextTransformerInverse();	
 	
 	@Test
 	public void testTextInverseLettersAllLowerCase() {

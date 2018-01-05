@@ -7,7 +7,7 @@ import org.junit.Test;
 
 public class TestTextTransformerLetterSize {
 	
-	TextTransformerLetterSize textTransformer = new TextTransformerLetterSize(null);	
+	TextTransformerLetterSize textTransformer = new TextTransformerLetterSize();	
 	
 	@Test
 	public void testUpperCaseToLowerCase() {
