@@ -1,5 +1,7 @@
 # lima
-## Maven Configuration ##
+## Maven ##
+
+### Configuration ###
 1. Download Maven binaries from https://maven.apache.org/download.cgi
 2. Unzip them to your computer.
 3. Ensure `JAVA_HOME` environment variable is set and points to your JDK installation.
