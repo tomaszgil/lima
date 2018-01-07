@@ -1,9 +1,21 @@
 package pl.put.poznan.transformer.logic;
 
+/**
+ * This class consists of a method used for inverting
+ * given string.
+ *
+ * @author  Miłosz Pogodski
+ */
 public class TextTransformerInverse {
 
     public TextTransformerInverse(){}
 
+    /**
+     * This method is used for inverting the string.
+     *
+     * @param text text which we want to invert
+     * @return inverted text
+     */
     public String inverse(String text){
         //
         char[] textChar = text.toCharArray();
