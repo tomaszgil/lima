@@ -8,14 +8,14 @@ import java.util.Arrays;
 
 
 @RestController
-@RequestMapping("/{text}")
+@RequestMapping("/normal")
 public class TextTransformerController {
 
     private static final Logger logger = LoggerFactory.getLogger(TextTransformerController.class);
 
-    @RequestMapping(method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(path = "/{text}", method = RequestMethod.GET, produces = "application/json")
     public String get(@PathVariable String text,
-                              @RequestParam(value="transforms", defaultValue="upper,escape") String[] transforms) {
+                              @RequestParam(value="transforms", defaultValue="upper") String[] transforms) {
 
         logger.debug(text);
         logger.debug(Arrays.toString(transforms));
@@ -34,9 +34,4 @@ public class TextTransformerController {
         TextTransformer transformer = new TextTransformer(transforms);
         return transformer.transform(text);
     }
-
-
-
 }
-
-
