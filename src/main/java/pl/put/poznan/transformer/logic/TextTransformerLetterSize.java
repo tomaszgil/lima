@@ -18,7 +18,6 @@ public class TextTransformerLetterSize {
      * @return text in upper case
      */
     public String upper(String text){
-        // changing to uppercase
         return text.toUpperCase();
     }
 
@@ -30,7 +29,6 @@ public class TextTransformerLetterSize {
      * @return text in lowercase
      */
     public String lower(String text){
-        // changing to lowercase
         return text.toLowerCase();
     }
 
@@ -41,7 +39,6 @@ public class TextTransformerLetterSize {
      * @return capitalized text
      */
     public String capitalize(String text){
-        // capitalizing
         char[] chars = text.toCharArray();
 
         chars[0] = Character.toUpperCase(chars[0]);
