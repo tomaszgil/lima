@@ -1,11 +1,9 @@
 package pl.put.poznan.transformer.logic;
 
 public class TextTransformerLetterSize {
+    
+    public TextTransformerLetterSize(){}
 
-
-    public TextTransformerLetterSize(){
-
-    }
 
     public String upper(String text){
         // changing to uppercase
