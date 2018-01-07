@@ -17,7 +17,6 @@ public class TextTransformerInverse {
      * @return inverted text
      */
     public String inverse(String text){
-        //
         char[] textChar = text.toCharArray();
         int left, right;
         right = textChar.length-1;
