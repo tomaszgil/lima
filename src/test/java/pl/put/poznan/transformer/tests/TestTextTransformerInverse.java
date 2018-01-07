@@ -1,8 +1,10 @@
-package pl.put.poznan.transformer.logic;
+package pl.put.poznan.transformer.tests;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+
+import pl.put.poznan.transformer.logic.TextTransformerInverse;
 
 public class TestTextTransformerInverse {
 
