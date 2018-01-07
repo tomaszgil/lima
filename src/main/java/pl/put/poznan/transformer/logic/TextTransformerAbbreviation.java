@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * This class consists of methods used for expanding and shortening
  * given abbreviations, specified a map.
-
+ *
  * @author  Miłosz Pogodski
  */
 public class TextTransformerAbbreviation {
@@ -44,7 +44,7 @@ public class TextTransformerAbbreviation {
     }
 
     /**
-     * This method is used for expanding supported words.
+     * This method is used for expanding supported abbreviations.
      *
      * @param text text in which we want to have supported abbreviations expanded
      * @return text with expanded abbreviations
