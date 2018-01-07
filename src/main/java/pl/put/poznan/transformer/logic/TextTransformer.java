@@ -9,12 +9,14 @@ public class TextTransformer {
     private TextTransformerAbbreviation textTransformerAbbreviation;
     private TextTransformerInverse textTransformerInverse;
     private TextTransformerLetterSize textTransformerLetterSize;
+    private TextTransformerLatex textTransformerLatex;
 
     public TextTransformer(String[] transforms){
         this.transforms = transforms;
         this.textTransformerAbbreviation = new TextTransformerAbbreviation();
         this.textTransformerInverse = new TextTransformerInverse();
         this.textTransformerLetterSize = new TextTransformerLetterSize();
+        this.textTransformerLatex = new TextTransformerLatex();
     }
 
     public String transform(String text){
@@ -35,6 +37,9 @@ public class TextTransformer {
             }
             if(transforms[i].contains("capitalize")) {
                 text = textTransformerLetterSize.capitalize(text);
+            }
+            if(transforms[i].contains("latex")){
+                text = textTransformerLatex.toLatex(text);
             }
         }
 
