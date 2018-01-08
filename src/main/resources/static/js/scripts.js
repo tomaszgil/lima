@@ -54,6 +54,8 @@ var TransformationForm = (function () {
 
     var bindEvents = function () {
         DOM.addBtn.click(addTransformation);
+        DOM.transformationList.sortable();
+        DOM.transformationList.disableSelection();
     };
 
     var init = function () {
