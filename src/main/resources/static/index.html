@@ -3,21 +3,42 @@
 <head>
     <meta charset="utf-8">
     <title>Lima: Text Transformer</title>
+    <link rel="stylesheet" href="css/lib/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <div class="wrapper">
-        <h1 class="title">Lima</h1>
-        <p class="subtitle">Text Transformer</p>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">Lima</h1>
+            <p class="subtitle">Text Transformer for Software Engineering 2018</p>
+        </div>
         <form class="transformation-form">
-            <input type="text" name="text" placeholder="Your text...">
-            <ul class="transformation-list"></ul>
-            <button class="add-transformation">Add next transformation</button>
-            <input type="submit" value="Transform">
+            <div class="form-group">
+                <label for="main-input">Text to be transformed</label>
+                <input type="text" class="form-control form-control-lg" id="main-input" name="text" placeholder="Enter your text here...">
+                <div class="alert" role="alert">
+                    <div>
+                        <strong>Result</strong> <span class="result"></span>
+                    </div>
+                    <button type="button" class="close" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="form-controls-container">
+                    <button class="add-transformation btn btn-secondary">Add transformation</button>
+                    <input class="btn btn-dark" type="submit" value="Transform">
+                </div>
+            </div>
+            <label>Transformations (will be applied from top to bottom)</label>
+            <ol class="transformation-list list-group"></ol>
+            <p class="reorder-hint">
+                To reorder the transformations drag and drop them in desired order.
+            </p>
         </form>
     </div>
     <script src="js/lib/jquery-3.2.1.js"></script>
     <script src="js/lib/jquery-ui.js"></script>
+    <script src="js/lib/bootstrap.bundle.js"></script>
     <script src="js/scripts.js"></script>
 </body>
 </html>
