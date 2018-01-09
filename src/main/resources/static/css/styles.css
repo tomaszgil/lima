@@ -38,3 +38,18 @@
 .close {
     float: none;
 }
+
+.transformation {
+    display: flex;
+    align-items: center;
+}
+
+.anchor {
+    pointer-events: none;
+    background: transparent;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    margin-right: 1rem;
+}

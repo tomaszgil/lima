@@ -47,7 +47,8 @@ var TransformationForm = (function () {
 
 
     var buildTransformation = function () {
-        var $transformation = $('<li class="transformation list-group-item d-flex"></li>');
+        var $transformation = $('<li class="transformation list-group-item"></li>');
+        var $anchor = $('<button class="anchor"></button>')
         var $dropdown = $('<select class="option form-control"></select>');
         var $removeBtn = $('<button class="remove btn btn-danger"><span aria-hidden="true">&times;</span></button>');
         var name, capitalizedName;
@@ -58,6 +59,7 @@ var TransformationForm = (function () {
             $dropdown.append('<option value="' + name + '">' + capitalizedName + '</option>');
         }
 
+        $transformation.append($anchor);
         $transformation.append($dropdown);
         $transformation.append($removeBtn);
         $removeBtn.click(function() {
@@ -80,17 +82,37 @@ var TransformationForm = (function () {
         e.preventDefault();
         var text = DOM.mainInput.val();
 
-        if (text === 'chuj') {
-            onFailure();
-        } else if (text === '') {
+        if (text === '') {
             onWarning();
         } else {
-            onSuccess();
+            sendRequest();
             DOM.result.text(text);
         }
 
         DOM.resultWrapper.show();
     };
+
+    var sendRequest = function () {
+        var data = {
+            "text": DOM.result.val(),
+            "transformations": getCurrentTransformations()
+        };
+
+        $.ajax({
+            type: 'POST',
+            url: '/json',
+            dataType: 'json',
+            contentType: 'application/json',
+            data: JSON.stringify(data),
+            success: onSuccess,
+            error: onFailure
+        });
+    };
+
+    var getCurrentTransformations = function () {
+        return [];
+    };
+
 
     var onResultClose = function () {
         DOM.resultWrapper.hide();
@@ -118,9 +140,10 @@ var TransformationForm = (function () {
         DOM.result.text(messages.warning[1]);
     };
 
-    var onSuccess = function () {
+    var onSuccess = function (data) {
         setResultStyle('success');
         DOM.resultMessage.text(messages.success[0]);
+        DOM.result.text(data);
     };
 
     var bindEvents = function () {
