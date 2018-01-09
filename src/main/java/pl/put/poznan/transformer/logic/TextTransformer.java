@@ -1,10 +1,18 @@
 package pl.put.poznan.transformer.logic;
 
 /**
- * This is just an example to show that the logic should be outside the REST service.
+ * This class invokes transforms on given string
+ * and return a result in a String format for
+ * normal path.
+ *
+ * @author Kamil Kołodziej
  */
 public class TextTransformer {
 
+    /**
+     * Transforms list keep all the transformations that needs to be
+     * invoked on a given string.
+     */
     private final String[] transforms;
     private TextTransformerAbbreviation textTransformerAbbreviation;
     private TextTransformerInverse textTransformerInverse;
@@ -19,6 +27,11 @@ public class TextTransformer {
         this.textTransformerLatex = new TextTransformerLatex();
     }
 
+    /**
+     * This method invokes all of the transformations in a given order.
+     * @param text input which needs to be transformed
+     * @return text after list of transformations
+     */
     public String transform(String text){
         for(int i=0; i<transforms.length; i++)
         {
