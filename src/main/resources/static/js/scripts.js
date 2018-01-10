@@ -81,12 +81,12 @@ var TransformationForm = (function () {
     var onSubmit = function (e) {
         e.preventDefault();
         var text = DOM.mainInput.val();
+        var transformations = getCurrentTransformations().length;
 
-        if (text === '') {
-            onWarning();
-        } else {
+        if (text && transformations) {
             sendRequest();
-            DOM.result.text(text);
+        } else {
+            onWarning();
         }
 
         DOM.resultWrapper.show();
@@ -94,8 +94,8 @@ var TransformationForm = (function () {
 
     var sendRequest = function () {
         var data = {
-            "text": DOM.result.val(),
-            "transformations": getCurrentTransformations()
+            "text": DOM.mainInput.val(),
+            "transforms": getCurrentTransformations()
         };
 
         $.ajax({
@@ -110,7 +110,14 @@ var TransformationForm = (function () {
     };
 
     var getCurrentTransformations = function () {
-        return [];
+        var transforms = [];
+
+        DOM.transformationList.children().each(function() {
+            var transform = $(this).find('select').val().toLowerCase();
+            transforms.push(transform);
+        });
+
+        return transforms;
     };
 
 
@@ -143,7 +150,12 @@ var TransformationForm = (function () {
     var onSuccess = function (data) {
         setResultStyle('success');
         DOM.resultMessage.text(messages.success[0]);
-        DOM.result.text(data);
+
+        if (data.text) {
+            DOM.result.text(data.text);
+        } else {
+            onFailure();
+        }
     };
 
     var bindEvents = function () {
