@@ -1,0 +1,55 @@
+.header {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.alert {
+    margin-top: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-controls-container {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0.8rem 0 3rem;
+}
+
+.add-transformation {
+    margin-right: 0.8rem;
+}
+
+.option {
+    margin-right: 0.8rem;
+}
+
+.transformation-list {
+    margin-bottom: 1rem;
+}
+
+.reorder-hint {
+    font-size: 0.8rem;
+}
+
+.result {
+    width: calc(100% - 2rem);
+}
+
+.close {
+    float: none;
+}
+
+.transformation {
+    display: flex;
+    align-items: center;
+}
+
+.anchor {
+    pointer-events: none;
+    background: transparent;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    margin-right: 1rem;
+}
