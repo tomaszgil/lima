@@ -94,7 +94,7 @@ public class TextTransformerNumbers {
                 }
             }
         }
-        text = text.replaceFirst("0", "");
+        text = text.replaceAll("0", "");
 
         return text;
     }
