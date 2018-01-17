@@ -49,7 +49,6 @@ public class TextTransformer {
                 text = textTransformerAbbreviation.fromAbbreviation(text);
             }
             if(transforms[i].contains("toabbreviation")){
-                System.out.println(text);
                 text = textTransformerAbbreviation.toAbbreviation(text);
             }
             if(transforms[i].contains("inverse")){
