@@ -8,6 +8,7 @@ var TransformationForm = (function () {
         'capitalize',
         'latex',
         'numbers',
+        'repetitions'
     ];
 
     var messages = {
