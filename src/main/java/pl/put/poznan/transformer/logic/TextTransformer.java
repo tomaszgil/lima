@@ -18,6 +18,7 @@ public class TextTransformer {
     private TextTransformerInverse textTransformerInverse;
     private TextTransformerLetterSize textTransformerLetterSize;
     private TextTransformerLatex textTransformerLatex;
+    private TextTransformerNumbers textTransformerNumbers;
 
     public TextTransformer(String[] transforms){
         this.transforms = transforms;
@@ -25,6 +26,7 @@ public class TextTransformer {
         this.textTransformerInverse = new TextTransformerInverse();
         this.textTransformerLetterSize = new TextTransformerLetterSize();
         this.textTransformerLatex = new TextTransformerLatex();
+        this.textTransformerNumbers = new TextTransformerNumbers();
     }
 
     /**
@@ -53,6 +55,9 @@ public class TextTransformer {
             }
             if(transforms[i].contains("latex")){
                 text = textTransformerLatex.toLatex(text);
+            }
+            if(transforms[i].contains("numbers")){
+                text = textTransformerNumbers.toText(text);
             }
         }
 

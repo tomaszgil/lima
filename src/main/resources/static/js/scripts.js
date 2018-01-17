@@ -6,7 +6,8 @@ var TransformationForm = (function () {
         'upper',
         'lower',
         'capitalize',
-        'latex'
+        'latex',
+        'numbers',
     ];
 
     var messages = {
