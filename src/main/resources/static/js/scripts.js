@@ -1,7 +1,8 @@
 var TransformationForm = (function () {
 
     var transformations = [
-        'abbreviation',
+        'fromAbbreviation',
+        'toAbbreviation',
         'inverse',
         'upper',
         'lower',
