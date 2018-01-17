@@ -1,7 +1,11 @@
 package pl.put.poznan.transformer.rest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 import pl.put.poznan.transformer.logic.JsonTransformer;
+
+import java.util.Arrays;
 
 /**
  * This class is controller which handle POST and GET request
@@ -13,6 +17,9 @@ import pl.put.poznan.transformer.logic.JsonTransformer;
 @RequestMapping("/json")
 public class JsonTransformerController {
 
+    private static final Logger logger = LoggerFactory.getLogger(JsonTransformerController.class);
+
+
     /**
      * This method handle GET request
      * @param text - user input which needs to be transformed
@@ -22,6 +29,9 @@ public class JsonTransformerController {
     @RequestMapping(path = "/{text}", produces = "application/json")
     public JsonTransformer jsonTransformer(@PathVariable String text,
                                @RequestParam(value="transforms", defaultValue="upper") String[] transforms) {
+
+        logger.debug("Text to transform: " + text);
+        logger.debug("List of transformation: " + Arrays.toString(transforms));
 
         return new JsonTransformer(transforms, text);
     }
@@ -34,6 +44,8 @@ public class JsonTransformerController {
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
     public JsonTransformer jsonTransformerInput(@RequestBody JsonTransformer jsonTransformer) {
 
+        logger.debug("Text to transform: " + jsonTransformer.getText());
+        logger.debug("List of transformation: " + Arrays.toString(jsonTransformer.getTransforms()));
         return new JsonTransformer(jsonTransformer);
     }
 }

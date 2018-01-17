@@ -1,5 +1,9 @@
 package pl.put.poznan.transformer.logic;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import pl.put.poznan.transformer.rest.JsonTransformerController;
+
 /**
  * This class invokes transforms on given string
  * and return a result in a String format for
@@ -13,6 +17,8 @@ public class TextTransformer {
      * Transforms list keep all the transformations that needs to be
      * invoked on a given string.
      */
+    private static final Logger logger = LoggerFactory.getLogger(TextTransformer.class);
+
     private final String[] transforms;
     private TextTransformerAbbreviation textTransformerAbbreviation;
     private TextTransformerInverse textTransformerInverse;
@@ -67,8 +73,10 @@ public class TextTransformer {
             if(transforms[i].contains("repetitions")){
                 text = textTransformerRepetition.deleteRepetitions(text);
             }
+            logger.debug("Text after " + (i+1) + " transform: " + text);
         }
 
+        logger.debug("Final form: " + text);
         return text;
     }
 }
