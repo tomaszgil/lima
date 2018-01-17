@@ -19,6 +19,7 @@ public class TextTransformer {
     private TextTransformerLetterSize textTransformerLetterSize;
     private TextTransformerLatex textTransformerLatex;
     private TextTransformerNumbers textTransformerNumbers;
+    private TextTransformerRepetition textTransformerRepetition;
 
     public TextTransformer(String[] transforms){
         this.transforms = transforms;
@@ -27,6 +28,7 @@ public class TextTransformer {
         this.textTransformerLetterSize = new TextTransformerLetterSize();
         this.textTransformerLatex = new TextTransformerLatex();
         this.textTransformerNumbers = new TextTransformerNumbers();
+        this. textTransformerRepetition = new TextTransformerRepetition();
     }
 
     /**
@@ -58,6 +60,9 @@ public class TextTransformer {
             }
             if(transforms[i].contains("numbers")){
                 text = textTransformerNumbers.toText(text);
+            }
+            if(transforms[i].contains("repetitions")){
+                text = textTransformerRepetition.deleteRepetitions(text);
             }
         }
 
