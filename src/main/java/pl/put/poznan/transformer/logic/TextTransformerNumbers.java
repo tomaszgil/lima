@@ -87,9 +87,9 @@ public class TextTransformerNumbers {
                         text = text.replaceFirst("," + Integer.toString(c), "i " + nastki[x] + "setnych");
                     } else {
                         if(check)
-                            text = text.replaceFirst("," + Integer.toString(c), "i " + dziesiątki[y] + jedności[x] + "setnych");
+                            text = text.replaceFirst("," + Integer.toString(y) + Integer.toString(x), "i " + dziesiątki[y] + jedności[x] + "setnych");
                         else
-                            text = text.replaceFirst("," + Integer.toString(c/10), "i " + dziesiątki[y] + jedności[x] + "setnych");
+                            text = text.replaceFirst("," + Integer.toString(c/10), "i " + dziesiątki[y] + "setnych");
                     }
                 }
             }
