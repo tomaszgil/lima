@@ -39,8 +39,10 @@ public class TextTransformer {
     public String transform(String text){
         for(int i=0; i<transforms.length; i++)
         {
-            if(transforms[i].contains("abbreviation")){
+            if(transforms[i].contains("fromabbreviation")){
                 text = textTransformerAbbreviation.fromAbbreviation(text);
+            }
+            if(transforms[i].contains("toabbreviation")){
                 text = textTransformerAbbreviation.toAbbreviation(text);
             }
             if(transforms[i].contains("inverse")){
