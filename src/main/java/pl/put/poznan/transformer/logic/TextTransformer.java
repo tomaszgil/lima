@@ -37,6 +37,11 @@ public class TextTransformer {
         this. textTransformerRepetition = new TextTransformerRepetition();
     }
 
+    public TextTransformer(String[] transforms, TextTransformerNumbers textTransformerNumbers){
+        this.transforms = transforms;
+        this.textTransformerNumbers = textTransformerNumbers;
+    }
+    
     /**
      * This method invokes all of the transformations in a given order.
      * @param text input which needs to be transformed
@@ -78,4 +83,5 @@ public class TextTransformer {
         logger.debug("Final form: " + text);
         return text;
     }
+    
 }
