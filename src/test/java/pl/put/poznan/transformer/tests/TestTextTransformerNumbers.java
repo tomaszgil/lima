@@ -19,15 +19,25 @@ public class TestTextTransformerNumbers {
 	@Before
 	public void setUp() {
 		mockObject = mock(TextTransformerNumbers.class);
+		when(mockObject.toText("000")).thenReturn("zero");
 		when(mockObject.toText("1")).thenReturn("jeden");
 		when(mockObject.toText("11")).thenReturn("jedenaście");
 		when(mockObject.toText("01")).thenReturn("jeden");
+		when(mockObject.toText("023")).thenReturn("dwadzieścia trzy");
 		when(mockObject.toText("30")).thenReturn("trzydzieści");
 		when(mockObject.toText("34")).thenReturn("trzydzieści cztery");
 		when(mockObject.toText("100")).thenReturn("sto");
 		when(mockObject.toText("123")).thenReturn("sto dwadzieścia trzy");
+		when(mockObject.toText("999")).thenReturn("dziewięćset dziewięćdziesiąt dziewięć");
 		String[] transforms = new String[]{"numbers"};
 		textTransformer = new TextTransformer(transforms, mockObject);
+	}
+	
+	@Test 
+	public void TestTextTransformerNumbers000() {
+		String result = textTransformer.transform("000");
+		verify(mockObject).toText("000");
+		assertEquals(result, "zero");
 	}
 	
 	@Test 
@@ -49,6 +59,13 @@ public class TestTextTransformerNumbers {
 		String result = textTransformer.transform("01");
 		verify(mockObject).toText("01");
 		assertEquals(result, "jeden");
+	}
+	
+	@Test 
+	public void TestTextTransformerNumbers023() {
+		String result = textTransformer.transform("023");
+		verify(mockObject).toText("023");
+		assertEquals(result, "dwadzieścia trzy");
 	}
 	
 	@Test 
@@ -77,6 +94,13 @@ public class TestTextTransformerNumbers {
 		String result = textTransformer.transform("123");
 		verify(mockObject).toText("123");
 		assertEquals(result, "sto dwadzieścia trzy");
+	}
+
+	@Test 
+	public void TestTextTransformerNumbers999() {
+		String result = textTransformer.transform("999");
+		verify(mockObject).toText("999");
+		assertEquals(result, "dziewięćset dziewięćdziesiąt dziewięć");
 	}
 	
 }
